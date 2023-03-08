@@ -19,6 +19,13 @@ def lead_detail(request, pk):
     return render(request, "leads/lead_detail.html", context)
 
 def lead_create(request):
+    form = LeadForm()
+    if request.method == 'POST':
+        print("recieving a post request")
+        form = LeadForm(request.POST)
+        if form.is_valid():
+            print("form is valid")
+            print(form.cleaned_data
     context = {
         "form": LeadForm()
     }
